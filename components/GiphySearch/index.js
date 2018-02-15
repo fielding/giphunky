@@ -1,6 +1,17 @@
 import React from 'react';
 
 class GiphySearch extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [],
+      page: null,
+      isLoading: false,
+      isError: false,
+    };
+  }
+
   render() {
     return (
       <div className="search">

@@ -1,5 +1,24 @@
 import React from 'react';
 
+const applyUpdateResult = result => prevState => ({
+  data: [...prevState.data, ...result.data],
+  page: ( result.pagination.offset / 20 ),
+  isError: false,
+  isLoading: false,
+});
+
+const applySetResult = result => prevState => ({
+  data: result.data,
+  page: ( result.pagination.offset / 20 ),
+  isError: false,
+  isLoading: false,
+});
+
+const applySetError = prevState => ({
+  isError: true,
+  isLoading: false,
+});
+
 class GiphySearch extends React.Component {
   constructor(props) {
     super(props);

@@ -75,6 +75,7 @@ class GiphySearch extends React.Component {
         </div>
         <Results
           list={this.state.data}
+          isLoading={this.state.isLoading}
         />
         <style jsx>
           {`

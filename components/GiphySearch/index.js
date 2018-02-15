@@ -1,5 +1,5 @@
 import React from 'react';
-import List from './List';
+import Results from './Results';
 
 const applyUpdateResult = result => prevState => ({
   data: [...prevState.data, ...result.data],
@@ -73,7 +73,7 @@ class GiphySearch extends React.Component {
             <button type="submit">Search</button>
           </form>
         </div>
-        <List
+        <Results
           list={this.state.data}
         />
         <style jsx>

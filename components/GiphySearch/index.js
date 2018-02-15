@@ -74,7 +74,7 @@ class GiphySearch extends React.Component {
   render() {
     return (
       <div className="search">
-        <div>
+        <div className="input-container">
           <form type="submit" onSubmit={this.onInitialSearch}>
             <input type="text" ref={node => { this.input = node; }} />
             <button type="submit">Search</button>
@@ -87,7 +87,40 @@ class GiphySearch extends React.Component {
           isLoading={this.state.isLoading}
           onPaginatedSearch={this.onPaginatedSearch}
         />
+        <style jsx>
+          {`
+            form {
+              width: 50%;
+            }
+            input {
+              padding: 10px;
+              border-radius: 5px;
+              outline: none;
+              border: 1px solid #dddddd;
+              font-size: 18px;
+            }
+
+            button {
+              padding: 10px;
+              margin-top: 10px;
+              margin-bottom: 10px;
+              border-radius: 5px;
+              border: 1px solid #dddddd;
+              background: transparent;
+              color: #808080;
+              cursor: pointer;
+              font-size: 18px;
+            }
+
+            .input-container {
+              display: flex;
+              justify-content: center;
+            }
+
+          `}
+        </style>
       </div>
+
     );
   }
 }

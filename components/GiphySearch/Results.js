@@ -5,7 +5,7 @@ import withPaginated from './withPaginated';
 import withInfiniteScroll from './withInfiniteScroll';
 
 const paginatedCondition = props =>
-  props.page !== null && !props.isLoading;
+  props.page !== null && !props.isLoading && props.isError;
 
 const infiniteScrollCondition = props =>
   (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)

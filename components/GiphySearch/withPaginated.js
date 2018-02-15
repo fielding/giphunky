@@ -8,11 +8,14 @@ const withPaginated = conditionFn => Component => props =>
       {
         conditionFn(props) &&
         <div>
+          <div>
+            Something went wrong...
+          </div>
           <button
             type="button"
             onClick={props.onPaginatedSearch}
           >
-            More
+            Try Again
           </button>
         </div>
       }

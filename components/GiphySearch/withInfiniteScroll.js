@@ -1,5 +1,5 @@
 import React from 'react';
-import debounce from '../../lib/debounce.js';
+import { debounce } from '../../lib/debounce';
 
 const withInfiniteScroll = conditionFn => Component =>
   class WithInfiniteScroll extends React.Component {

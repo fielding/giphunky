@@ -8,14 +8,14 @@ const applyUpdateResult = result => prevState => ({
   isLoading: false,
 });
 
-const applySetResult = result => prevState => ({
+const applySetResult = result => () => ({
   data: result.data,
   page: ( result.pagination.offset / 20 ),
   isError: false,
   isLoading: false,
 });
 
-const applySetError = prevState => ({
+const applySetError = () => ({
   isError: true,
   isLoading: false,
 });
@@ -47,16 +47,8 @@ class GiphySearch extends React.Component {
     this.fetchResults(value, 0);
   }
 
-  onPaginatedSearch = e =>
+  onPaginatedSearch = () =>
     this.fetchResults(this.input.value, this.state.page + 1);
-
-  fetchResults = (value, page) => {
-    this.setState({ isLoading: true });
-    fetch(getGiphySearchUrl(value, page))
-      .then(response => response.json())
-      .then(result => this.onSetResult(result, page))
-      .catch(this.onSetError);
-  }
 
   onSetError = () =>
     this.setState(applySetError);
@@ -67,12 +59,20 @@ class GiphySearch extends React.Component {
       : this.setState(applyUpdateResult(result))
   )
 
+  fetchResults = (value, page) => {
+    this.setState({ isLoading: true });
+    fetch(getGiphySearchUrl(value, page))
+      .then(response => response.json())
+      .then(result => this.onSetResult(result, page))
+      .catch(this.onSetError);
+  }
+
   render() {
     return (
       <div className="search">
         <div>
           <form type="submit" onSubmit={this.onInitialSearch}>
-            <input type="text" ref={node => this.input = node} />
+            <input type="text" ref={node => { this.input = node; }} />
             <button type="submit">Search</button>
           </form>
         </div>

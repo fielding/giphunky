@@ -10,6 +10,7 @@ const Page = ({ children }) => (
           justify-content: center;
           text-align: center;
         }
+
       `}
     </style>
   </div>

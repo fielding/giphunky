@@ -19,6 +19,9 @@ const applySetError = prevState => ({
   isLoading: false,
 });
 
+const getGiphySearchUrl = (value, page) =>
+  `http://api.giphy.com/v1/gifs/search?q=${value}&api_key=dc6zaTOxFJmzC&limit=20&offset=${page * 20}`;
+
 class GiphySearch extends React.Component {
   constructor(props) {
     super(props);
@@ -43,8 +46,22 @@ class GiphySearch extends React.Component {
     this.fetchResults(value, 0);
   }
 
-  fetchResults  = (value, page) => {
+  fetchResults = (value, page) => {
+    this.setState({ isLoading: true });
+    fetch(getGiphySearchUrl(value, page))
+      .then(response => response.json())
+      .then(result => this.onSetResult(result, page))
+      .catch(this.onSetError);
   }
+
+  onSetError = () =>
+    this.setState(applySetError);
+
+  onSetResult = (result, page) => (
+    page === 0
+      ? this.setState(applySetResult(result))
+      : this.setState(applyUpdateResult(result))
+  )
 
   render() {
     return (

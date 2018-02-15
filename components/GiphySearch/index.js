@@ -30,6 +30,7 @@ class GiphySearch extends React.Component {
     this.state = {
       data: [],
       page: null,
+      value: null,
       isLoading: false,
       isError: false,
     };
@@ -48,7 +49,7 @@ class GiphySearch extends React.Component {
   }
 
   onPaginatedSearch = () =>
-    this.fetchResults(this.input.value, this.state.page + 1);
+    this.fetchResults(this.state.value, this.state.page + 1);
 
   onSetError = () =>
     this.setState(applySetError);
@@ -60,7 +61,10 @@ class GiphySearch extends React.Component {
   )
 
   fetchResults = (value, page) => {
-    this.setState({ isLoading: true });
+    this.setState({
+      isLoading: true,
+      value,
+    });
     fetch(getGiphySearchUrl(value, page))
       .then(response => response.json())
       .then(result => this.onSetResult(result, page))

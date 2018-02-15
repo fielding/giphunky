@@ -47,6 +47,9 @@ class GiphySearch extends React.Component {
     this.fetchResults(value, 0);
   }
 
+  onPaginatedSearch = e =>
+    this.fetchResults(this.input.value, this.state.page + 1);
+
   fetchResults = (value, page) => {
     this.setState({ isLoading: true });
     fetch(getGiphySearchUrl(value, page))
@@ -75,7 +78,10 @@ class GiphySearch extends React.Component {
         </div>
         <Results
           list={this.state.data}
+          page={this.state.page}
+          isError={this.state.isError}
           isLoading={this.state.isLoading}
+          onPaginatedSearch={this.onPaginatedSearch}
         />
         <style jsx>
           {`

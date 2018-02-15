@@ -7,7 +7,8 @@ const List = ({ list }) =>
         const divStyle = {
           width: '260px',
           height: `${item.images.downsized.height * (260 / item.images.downsized.width)}px`,
-          backgroundColor: index % 2 ? '#ddd' : '#bbb',
+          backgroundColor: index % 2 ? '#26A9E0' : '#0E7CB2',
+          color: index % 2 ? '#26A9E0' : '#0E7CB2',
         };
 
         return (
@@ -24,7 +25,6 @@ const List = ({ list }) =>
     <style jsx>
       {`
         ul {
-          line-height: 0;
           margin: 0;
           padding: 0;
           list-style: none;
@@ -46,6 +46,7 @@ const List = ({ list }) =>
           margin-bottom: 0px;
           width: 100%;
           height: auto;
+          color: rgba(0, 0, 0, 0);
         }
 
         a {

@@ -83,12 +83,6 @@ class GiphySearch extends React.Component {
           isLoading={this.state.isLoading}
           onPaginatedSearch={this.onPaginatedSearch}
         />
-        <style jsx>
-          {`
-            .search {
-            }
-          `}
-        </style>
       </div>
     );
   }

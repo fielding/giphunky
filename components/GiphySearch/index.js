@@ -31,11 +31,26 @@ class GiphySearch extends React.Component {
     };
   }
 
+  onInitialSearch = e => {
+    e.preventDefault();
+
+    const { value } = this.input;
+
+    if (value === '') {
+      return;
+    }
+
+    this.fetchResults(value, 0);
+  }
+
+  fetchResults  = (value, page) => {
+  }
+
   render() {
     return (
       <div className="search">
         <div>
-          <form type="submit">
+          <form type="submit" onSubmit={this.onInitialSearch}>
             <input type="text" ref={node => this.input = node} />
             <button type="submit">Search</button>
           </form>

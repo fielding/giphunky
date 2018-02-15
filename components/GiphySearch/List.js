@@ -25,6 +25,9 @@ const List = ({ list }) =>
       {`
         ul {
           line-height: 0;
+          margin: 0;
+          padding: 0;
+          list-style: none;
           -moz-column-count: 3;
           -moz-column-gap: 10px;
           -webkit-column-count: 3;
@@ -32,7 +35,6 @@ const List = ({ list }) =>
           column-count: 3;
           column-gap: 10px;
           width: 800px;
-          list-style: none;
         }
 
         li {

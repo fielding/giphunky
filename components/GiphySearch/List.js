@@ -1,29 +1,63 @@
 import React from 'react';
 
 const List = ({ list }) =>
-  (<div>
-    <div className="results">
-      {list.map(item => (
-        <div className="item" key={item.id}>
-          <a href={item.url}>
-            <img src={item.images.downsized.url} alt={item.title} />
-          </a>
-        </div>
-      ))}
-    </div>
+  (<div className="container">
+    <ul>
+      {list.map((item, index) => {
+        const divStyle = {
+          width: '260px',
+          height: `${item.images.downsized.height * (260 / item.images.downsized.width)}px`,
+          backgroundColor: index % 2 ? '#ddd' : '#bbb',
+        };
+
+        return (
+          <li key={item.id}>
+            <div className="placeholder" style={divStyle}>
+              <a href={item.url}>
+                <img src={item.images.downsized.url} alt={item.title} />
+              </a>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
     <style jsx>
       {`
-        .results {
-          margin: 20px 0;
-          display: flex;
-          flex-wrap: wrap;
+        ul {
+          line-height: 0;
+          -moz-column-count: 3;
+          -moz-column-gap: 10px;
+          -webkit-column-count: 3;
+          -webkit-column-gap: 10px;
+          column-count: 3;
+          column-gap: 10px;
           width: 800px;
-          border: 1px solid #e3e3e3;
-          border-radius: 5px;
+          list-style: none;
         }
-        .item {
-          display: flex;
-          padding: 5px;
+
+        li {
+          padding-bottom: 10px;
+        }
+
+        img {
+          display: inline-block;
+          margin-bottom: 0px;
+          width: 100%;
+          height: auto;
+        }
+
+        a {
+          text-decoration: none;
+          color: #212121;
+        }
+
+        .placeholder {
+          display: block;
+        }
+
+        .container {
+          width: 800px;
+          margin: 0 auto;
         }
       `}
     </style>

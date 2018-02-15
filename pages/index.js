@@ -1,1 +1,9 @@
-export default () => <div>Hello World!</div>
+import Page from '../components/Page';
+
+const Index = () => (
+  <Page>
+    <span>Hello World!</span>
+  </Page>
+);
+
+export default Index;

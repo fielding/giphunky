@@ -6,6 +6,9 @@ const Page = ({ children }) => (
     <style jsx global>
       {`
         .page {
+          display: flex;
+          justify-content: center;
+          text-align: center;
         }
       `}
     </style>

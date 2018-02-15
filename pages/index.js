@@ -1,8 +1,9 @@
 import Page from '../components/Page';
+import GiphySearch from '../components/GiphySearch';
 
 const Index = () => (
   <Page>
-    <span>Hello World!</span>
+    <GiphySearch />
   </Page>
 );
 

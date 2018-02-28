@@ -21,7 +21,7 @@ const applySetError = () => ({
 });
 
 const getGiphySearchUrl = (value, page) =>
-  `http://api.giphy.com/v1/gifs/search?q=${value}&api_key=dc6zaTOxFJmzC&limit=20&offset=${page * 20}`;
+  `https://api.giphy.com/v1/gifs/search?q=${value}&api_key=dc6zaTOxFJmzC&limit=20&offset=${page * 20}`;
 
 class GiphySearch extends React.Component {
   constructor(props) {

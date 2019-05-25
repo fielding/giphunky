@@ -1,28 +1,40 @@
 import React from 'react';
+import gradientify from '../components/Gradientify';
 
-const Page = ({ children }) => (
-  <div className="page">
-    {children}
-    <style jsx global>
-      {`
-        body {
-          border-top: 4px solid #26A9E0;
-          border-image-source: linear-gradient(to left, #2f80ed, #56ccf2);
-          border-image-slice: 4;
-          margin: 0;
-          padding: 0;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        }
+const Page = ({ children, gradient, background }) => {
+  const childrenWithProps = React.Children.map(children, child =>
+    React.cloneElement(child, { gradient, background }),
+  );
 
-        .page {
-          display: flex;
-          justify-content: center;
-          text-align: center;
-        }
+  return (
+    <div className="page">
+      {childrenWithProps}
 
-      `}
-    </style>
-  </div>
-);
+      <style jsx global>
+        {`
+          html,
+          body,
+          #__next {
+            height: 100%;
+          }
 
-export default Page;
+          body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            text-rendering: geometricprecision;
+            font-size: 18px;
+          }
+
+          .page {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+          }
+        `}
+      </style>
+    </div>
+  );
+};
+
+export default gradientify(Page);

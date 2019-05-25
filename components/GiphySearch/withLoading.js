@@ -1,7 +1,7 @@
 import React from 'react';
 
-const withLoading = conditionFn => Component => props =>
-  (<div>
+const withLoading = conditionFn => Component => props =>(
+  <div>
     <Component {...props} />
 
     <div className="loading">
@@ -14,6 +14,7 @@ const withLoading = conditionFn => Component => props =>
         }
       `}
     </style>
-  </div>);
+  </div>
+  );
 
 export default withLoading;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Results from './Results';
+import Results from './Results';;
 
 const applyUpdateResult = result => prevState => ({
   data: [...prevState.data, ...result.data],
@@ -20,8 +20,6 @@ const applySetError = () => ({
   isLoading: false,
 });
 
-const getGiphySearchUrl = (value, page) =>
-  `https://api.giphy.com/v1/gifs/search?q=${value}&api_key=dc6zaTOxFJmzC&limit=20&offset=${page * 20}`;
 
 class GiphySearch extends React.Component {
   constructor(props) {
@@ -65,7 +63,7 @@ class GiphySearch extends React.Component {
       isLoading: true,
       value,
     });
-    fetch(getGiphySearchUrl(value, page))
+    fetch(`.netlify/lambda/giphyApiSearch?value=${value}&page=${page}`)
       .then(response => response.json())
       .then(result => this.onSetResult(result, page))
       .catch(this.onSetError);

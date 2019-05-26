@@ -63,7 +63,7 @@ class GiphySearch extends React.Component {
       isLoading: true,
       value,
     });
-    fetch(`.netlify/functions/giphyApiSearch?value=${value}&page=${page}`)
+    fetch('.netlify/functions/giphyApiSearch', { method: 'POST', body: JSON.stringify({ value, page }), 'Content-Type': 'application/json' })
       .then(response => response.json())
       .then(result => this.onSetResult(result, page))
       .catch(this.onSetError);

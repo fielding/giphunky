@@ -6,7 +6,7 @@ const getGiphySearchUrl = (value, page) =>
   }&limit=20&offset=${page * 20}`;
 
 exports.handler = (event, context, callback) => {
-  const { value, page } = event.queryStringParameters;
+  const { value, page } = JSON.parse(event.body);
 
   return fetch(getGiphySearchUrl(value, page))
     .then(response => response.json())

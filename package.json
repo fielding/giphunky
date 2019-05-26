@@ -12,6 +12,7 @@
   "dependencies": {
     "autoprefixer": "^9.5.1",
     "babel-loader": "^8.0.6",
+    "encoding": "^0.1.12",
     "glob": "^7.1.4",
     "netlify-lambda": "^1.4.13",
     "next": "^8.1.0",

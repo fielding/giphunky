@@ -1,4 +1,4 @@
 [build]
   Command = "npm run export"
-  functions = ".netlify/lambda/"
+  functions = ".netlify/functions/"
   Publish = "out"

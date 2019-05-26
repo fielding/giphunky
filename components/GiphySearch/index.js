@@ -97,6 +97,7 @@ class GiphySearch extends React.Component {
         <style jsx>
           {`
             form {
+              -webkit-appearance: none;
               border: 1px solid ${this.props.background.shadow};
               box-shadow: 6px 6px ${this.props.background.shadow};
             }
@@ -156,8 +157,7 @@ class GiphySearch extends React.Component {
 
             svg {
               fill: #fff;
-              height: 32px;
-              width 32px;
+              width: 32px;
             }
 
             .input-container {

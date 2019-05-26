@@ -90,6 +90,9 @@ const gradientify = Component =>
                 background-color: ${this.state.background.hex};
                 color: ${this.state.background.fg};
                 height: calc(100vh - 10px);
+                border-bottom: 0;
+                border-left: 0;
+                border-right: 0;
               }
 
               body, a, button, input, video, audio:hover {
@@ -153,7 +156,7 @@ const gradientify = Component =>
 
               @supports not (writing-mode: sideways-lr) {
                 .label {
-                  writing-mode: vertical-lr
+                  writing-mode: vertical-lr;
                   text-align: right;
                 }
               }
